@@ -1,7 +1,8 @@
 import asyncio
 
 from config_data import dp, bot
-from handler import register_message_handlers
+
+from handler import router
 
 from utils import setup_logger
 
@@ -10,7 +11,7 @@ async def polling_bot():
 
     setup_logger("INFO", ["sqlalchemy.engine", "aiogram.bot.api"])
 
-    register_message_handlers(dp)
+    dp.include_router(router=router)
 
     try:
         await dp.start_polling(bot)
