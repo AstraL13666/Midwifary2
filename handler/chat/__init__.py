@@ -1,1 +1,1 @@
-from .standart_command import register_message_handlers
+from .standart_command import router
